@@ -1,0 +1,496 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Force CSS loading and ensure compatibility */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Comic Sans MS', cursive, sans-serif !important;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fed7aa 100%) !important;
+  min-height: 100vh !important;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fed7aa 100%) !important;
+}
+
+/* TABLET-OPTIMIZED STYLES - FORCED LOADING */
+
+/* Main container optimized for tablets (768px - 1024px) */
+.story-container {
+  min-height: 100vh !important;
+  padding: 2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fed7aa 100%) !important;
+  padding-top: 140px !important; /* Space for progress bar */
+}
+
+/* Card container - larger for tablets */
+.story-card {
+  background: white !important;
+  border-radius: 2rem !important;
+  box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3) !important;
+  border: 6px solid #3b82f6 !important;
+  width: 90% !important;
+  max-width: 900px !important;
+  min-height: 600px !important;
+  padding: 3rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  margin: 2rem auto !important;
+}
+
+/* Progress bar - fixed at top, larger for tablets */
+.progress-container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 50 !important;
+  background: white !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  padding: 1.5rem 2rem !important;
+  border-bottom: 4px solid #e5e7eb !important;
+}
+
+.progress-content {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+.progress-info {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 1rem !important;
+}
+
+.progress-text {
+  font-size: 1.25rem !important;
+  font-weight: bold !important;
+  color: #4b5563 !important;
+}
+
+.progress-percentage {
+  font-size: 1.25rem !important;
+  font-weight: bold !important;
+  color: #3b82f6 !important;
+}
+
+.progress-bar {
+  width: 100% !important;
+  height: 1.5rem !important;
+  background: #e5e7eb !important;
+  border-radius: 9999px !important;
+  overflow: hidden !important;
+}
+
+.progress-fill {
+  height: 100% !important;
+  transition: all 0.5s ease-out !important;
+  background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b) !important;
+}
+
+/* Buttons - larger for tablet touch */
+.story-button {
+  padding: 1.5rem 3rem !important;
+  border-radius: 9999px !important;
+  color: white !important;
+  font-weight: bold !important;
+  font-size: 1.5rem !important;
+  transition: all 0.3s ease !important;
+  transform: scale(1) !important;
+  background: linear-gradient(45deg, #3b82f6, #1d4ed8) !important;
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.4) !important;
+  min-width: 200px !important;
+  border: none !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  text-align: center !important;
+}
+
+.story-button:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 16px 32px rgba(59, 130, 246, 0.6) !important;
+}
+
+.story-button:active {
+  transform: scale(0.95) !important;
+}
+
+.story-button-secondary {
+  padding: 1.25rem 2.5rem !important;
+  border-radius: 9999px !important;
+  color: white !important;
+  font-weight: bold !important;
+  font-size: 1.25rem !important;
+  transition: all 0.3s ease !important;
+  background: linear-gradient(45deg, #10b981, #059669) !important;
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4) !important;
+  min-width: 180px !important;
+  border: none !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  text-align: center !important;
+}
+
+.story-button-warning {
+  padding: 1.25rem 2.5rem !important;
+  border-radius: 9999px !important;
+  color: white !important;
+  font-weight: bold !important;
+  font-size: 1.25rem !important;
+  transition: all 0.3s ease !important;
+  background: linear-gradient(45deg, #f59e0b, #d97706) !important;
+  box-shadow: 0 10px 20px rgba(245, 158, 11, 0.4) !important;
+  min-width: 180px !important;
+  border: none !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  text-align: center !important;
+}
+
+/* Character/Location selection - optimized for tablets */
+.character-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 2rem !important;
+  width: 100% !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+.character-option {
+  padding: 2rem !important;
+  border-radius: 2rem !important;
+  border: 6px solid transparent !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  background: white !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
+  min-height: 200px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.character-option:hover {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 16px 32px rgba(59, 130, 246, 0.3) !important;
+  transform: scale(1.05) !important;
+}
+
+.character-option.selected {
+  border-color: #10b981 !important;
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5) !important;
+  box-shadow: 0 16px 32px rgba(16, 185, 129, 0.3) !important;
+}
+
+.character-emoji {
+  font-size: 4rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.character-name {
+  font-weight: bold !important;
+  font-size: 1.5rem !important;
+  text-align: center !important;
+  color: #1f2937 !important;
+}
+
+/* Text inputs - larger for tablets */
+.story-input {
+  width: 100% !important;
+  padding: 1.5rem !important;
+  font-size: 1.5rem !important;
+  border-radius: 2rem !important;
+  border: 6px solid #bfdbfe !important;
+  transition: all 0.3s ease !important;
+  font-family: 'Comic Sans MS', cursive, sans-serif !important;
+  background: #fefefe !important;
+  box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.1) !important;
+  min-height: 120px !important;
+  resize: vertical !important;
+}
+
+.story-input:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.1), 0 0 0 6px rgba(59, 130, 246, 0.2) !important;
+  outline: none !important;
+}
+
+/* Typography - larger for tablets */
+.story-title {
+  font-size: 3rem !important;
+  font-weight: bold !important;
+  color: #3b82f6 !important;
+  margin-bottom: 2rem !important;
+  text-align: center !important;
+}
+
+.story-subtitle {
+  font-size: 2rem !important;
+  font-weight: bold !important;
+  color: #3b82f6 !important;
+  margin-bottom: 1.5rem !important;
+  text-align: center !important;
+}
+
+.story-text {
+  font-size: 1.5rem !important;
+  color: #374151 !important;
+  line-height: 1.6 !important;
+  text-align: center !important;
+}
+
+.story-hint {
+  padding: 1.5rem !important;
+  border-radius: 1rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.story-hint-text {
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+}
+
+/* Quiz and interactive elements */
+.quiz-option {
+  width: 100% !important;
+  padding: 1.5rem !important;
+  border-radius: 2rem !important;
+  border: 6px solid transparent !important;
+  transition: all 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 80px !important;
+  font-size: 1.25rem !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  margin: 0.5rem !important;
+}
+
+.quiz-option:hover {
+  transform: scale(1.05) !important;
+}
+
+/* Problem/Solution selection */
+.selection-option {
+  width: 100% !important;
+  padding: 2rem !important;
+  background: white !important;
+  border: 6px solid #e5e7eb !important;
+  border-radius: 2rem !important;
+  transition: all 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  min-height: 100px !important;
+  cursor: pointer !important;
+  margin-bottom: 1rem !important;
+}
+
+.selection-option:hover {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.selection-emoji {
+  font-size: 3rem !important;
+}
+
+.selection-text {
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+  color: #374151 !important;
+  flex: 1 !important;
+}
+
+/* Drag and drop - larger touch targets */
+.drop-zone {
+  min-height: 6rem !important;
+  border: 6px dashed #93c5fd !important;
+  border-radius: 1rem !important;
+  padding: 1.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #eff6ff !important;
+  font-size: 1.25rem !important;
+  margin-bottom: 1rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.drop-zone:hover {
+  background: #dbeafe !important;
+  border-color: #3b82f6 !important;
+}
+
+.draggable-item {
+  padding: 1.5rem !important;
+  background: white !important;
+  border: 4px solid #d1d5db !important;
+  border-radius: 1rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  font-size: 1.25rem !important;
+  min-height: 80px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 1rem !important;
+  text-align: center !important;
+}
+
+.draggable-item:hover {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+  transform: scale(1.02) !important;
+}
+
+/* Checkboxes - larger for tablets */
+.story-checkbox {
+  width: 2rem !important;
+  height: 2rem !important;
+  cursor: pointer !important;
+}
+
+/* Emoji sizes */
+.emoji-large {
+  font-size: 5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.emoji-medium {
+  font-size: 4rem !important;
+}
+
+/* Button groups */
+.button-group {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1.5rem !important;
+  justify-content: center !important;
+  margin-top: 2rem !important;
+}
+
+/* Content spacing */
+.content-section {
+  margin-bottom: 2rem !important;
+}
+
+/* Responsive adjustments for smaller tablets */
+@media (max-width: 768px) {
+  .story-card {
+    width: 95% !important;
+    padding: 2rem !important;
+    min-height: 500px !important;
+  }
+  
+  .character-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  .story-title {
+    font-size: 2.5rem !important;
+  }
+  
+  .story-button {
+    font-size: 1.25rem !important;
+    padding: 1.25rem 2.5rem !important;
+  }
+}
+
+/* Landscape orientation optimizations */
+@media (orientation: landscape) and (max-height: 600px) {
+  .story-container {
+    padding-top: 100px !important;
+  }
+  
+  .story-card {
+    min-height: 400px !important;
+    padding: 2rem !important;
+  }
+  
+  .progress-container {
+    padding: 1rem 2rem !important;
+  }
+}
+
+/* Force text colors */
+h1, h2, h3, h4, h5, h6 {
+  color: #3b82f6 !important;
+}
+
+p, span, div {
+  color: #374151 !important;
+}
+
+/* Animations */
+.bounce-in {
+  animation: bounceIn 0.8s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
